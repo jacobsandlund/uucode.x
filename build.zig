@@ -34,5 +34,7 @@ pub fn configureBuild(uucode_x: *std.Build.Dependency, uucode: *std.Build.Depend
 }
 
 pub fn configureRoot(uucode_x: *std.Build.Dependency, uucode: *std.Build.Dependency) void {
-    uucode_x.module("uucode.x").addImport("get", uucode.module("get"));
+    const uucode_x_mod = uucode_x.module("uucode.x");
+    uucode_x_mod.addImport("get", uucode.module("get"));
+    uucode.module("x").addImport("uucode_x", uucode_x_mod);
 }
