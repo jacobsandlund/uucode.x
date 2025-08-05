@@ -59,7 +59,7 @@
 //!
 //! Latest version: http://www.cl.cam.ac.uk/~mgk25/ucs/wcwidth.c
 
-const config = @import("config");
+const config = @import("config.zig");
 const d = config.default;
 
 /// From: https://www.cl.cam.ac.uk/~mgk25/ucs/wcwidth.c

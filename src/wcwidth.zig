@@ -1,4 +1,4 @@
-const get = @import("get");
+const get = @import("get.zig");
 const tableFor = get.tableFor;
 const data = get.data;
 
