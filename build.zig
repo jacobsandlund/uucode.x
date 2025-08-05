@@ -25,10 +25,14 @@ pub fn build(b: *std.Build) void {
     lib_mod.addImport("types.x.zig", types_mod);
 }
 
-pub fn configure(uucode_x: *std.Build.Dependency, uucode: *std.Build.Dependency) void {
+pub fn configureBuild(uucode_x: *std.Build.Dependency, uucode: *std.Build.Dependency) void {
     const config_x = uucode_x.module("config.x");
 
     uucode.module("build_config").addImport("config.x", config_x);
     config_x.addImport("config", uucode.module("config"));
     config_x.addImport("types", uucode.module("types"));
+}
+
+pub fn configureRoot(uucode_x: *std.Build.Dependency, uucode: *std.Build.Dependency) void {
+    uucode_x.module("uucode.x").addImport("get", uucode.module("get"));
 }
