@@ -105,9 +105,9 @@ fn compute(cp: u21, data: anytype) void {
 
     if (cp == 0) {
         data.wcwidth = 0;
-    } else if (gc == .Cc) { // Control
+    } else if (gc == .other_control) {
         data.wcwidth = -1;
-    } else if (gc == .Mn or gc == .Me) { // Mark, non-spacing and enclosing
+    } else if (gc == .mark_nonspacing or gc == .mark_enclosing) {
         data.wcwidth = 0;
     } else if (cp == 0x00AD) { // Soft hyphen
         data.wcwidth = 1;
@@ -115,8 +115,8 @@ fn compute(cp: u21, data: anytype) void {
         data.wcwidth = 2;
     } else if (cp == 0x2E3B) { // Three-em dash
         data.wcwidth = 3;
-    } else if (gc == .Cf) { // Format
-        // Note that Ziglyph treats (some) Arabic Format characters as width 1.
+    } else if (gc == .other_format) {
+        // Note that Ziglyph treats (some) Arabic format characters as width 1.
         data.wcwidth = 0;
     } else if (block == .hangul_jamo and cp >= 0x1160) {
         // Note though that 0x1160 and up in hangul_jamo are
