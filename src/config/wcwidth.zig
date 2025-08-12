@@ -99,7 +99,9 @@ const d = config.default;
 /// it takes two regional indicators to combine to form a flag in an emoji flag
 /// sequence, this instead treats it as width 1
 ///
-fn compute(cp: u21, data: anytype) void {
+fn compute(cp: u21, data: anytype, backing: anytype, tracking: anytype) void {
+    _ = backing;
+    _ = tracking;
     const gc = data.general_category;
     const block = data.block;
 
