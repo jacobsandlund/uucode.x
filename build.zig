@@ -10,17 +10,17 @@ pub fn build(b: *std.Build) void {
         .optimize = optimize,
     });
 
-    _ = b.addModule("uucode.x", .{
+    _ = b.addModule("gib.x", .{
         .root_source_file = b.path("src/root.zig"),
         .target = target,
         .optimize = optimize,
     });
 }
 
-pub fn connectBuild(uucode_x: *std.Build.Dependency, uucode: *std.Build.Dependency) void {
-    const config_mod = uucode_x.module("config.x.zig");
+pub fn connectBuild(gib_x: *std.Build.Dependency, gib: *std.Build.Dependency) void {
+    const config_mod = gib_x.module("config.x.zig");
 
-    uucode.module("build_config").addImport("config.x.zig", config_mod);
-    config_mod.addImport("config.zig", uucode.module("config.zig"));
-    config_mod.addImport("types.zig", uucode.module("types.zig"));
+    gib.module("build_config").addImport("config.x.zig", config_mod);
+    config_mod.addImport("config.zig", gib.module("config.zig"));
+    config_mod.addImport("types.zig", gib.module("types.zig"));
 }
