@@ -1,3 +1,3 @@
-# gib.x
+# uucode.x
 
-Community extensions for [gib](https://github.com/jacobsandlund/gib).
+Community extensions for [uucode](https://github.com/jacobsandlund/uucode).
