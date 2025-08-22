@@ -134,5 +134,7 @@ fn compute(cp: u21, data: anytype, backing: anytype, tracking: anytype) void {
 pub const wcwidth = config.Extension{
     .inputs = &.{ "block", "east_asian_width", "general_category" },
     .compute = &compute,
-    .fields = &.{.extension("wcwidth", i3)},
+    .fields = &.{
+        .{ .name = "wcwidth", .type = i3 },
+    },
 };
