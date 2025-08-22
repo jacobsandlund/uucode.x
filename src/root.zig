@@ -1,3 +1,4 @@
+const uucode = @import("uucode");
 const types_x = @import("types.x.zig");
 const grapheme_break_x = @import("grapheme_break_x.zig");
 
@@ -5,3 +6,6 @@ pub const GraphemeBreakXEmoji = types_x.GraphemeBreakXEmoji;
 
 pub const computeGraphemeBreakXEmoji = grapheme_break_x.computeGraphemeBreakXEmoji;
 pub const graphemeBreakXEmoji = grapheme_break_x.graphemeBreakXEmoji;
+
+// Re-export from `uucode` for convenience:
+pub const GraphemeBreakState = uucode.GraphemeBreakState;
