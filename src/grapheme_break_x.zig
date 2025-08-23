@@ -1,8 +1,12 @@
 const std = @import("std");
 const uucode = @import("uucode");
-const types_x = @import("types.x.zig");
 
-fn mapXEmojiToOriginal(gbx: types_x.GraphemeBreakXEmoji) uucode.GraphemeBreak {
+// TODO: once #1 is solved, GraphemeBreakXEmoji can be moved to a `types.x.zig` and shared here
+// const types_x = @import("types.x.zig");
+
+const GraphemeBreakXEmoji = uucode.TypeOf(.grapheme_break_x_emoji);
+
+fn mapXEmojiToOriginal(gbx: GraphemeBreakXEmoji) uucode.GraphemeBreak {
     return switch (gbx) {
         .emoji_modifier => .indic_conjunct_break_extend,
         .emoji_modifier_base => .extended_pictographic,
@@ -21,8 +25,8 @@ fn mapXEmojiToOriginal(gbx: types_x.GraphemeBreakXEmoji) uucode.GraphemeBreak {
 // cluster break properties were simplified to remove `E_Base` and
 // `E_Modifier`: http://www.unicode.org/reports/tr29/tr29-32.html
 pub fn computeGraphemeBreakXEmoji(
-    gbx1: types_x.GraphemeBreakXEmoji,
-    gbx2: types_x.GraphemeBreakXEmoji,
+    gbx1: GraphemeBreakXEmoji,
+    gbx2: GraphemeBreakXEmoji,
     state: *uucode.GraphemeBreakState,
 ) bool {
     const gb1 = mapXEmojiToOriginal(gbx1);
@@ -53,7 +57,7 @@ pub fn graphemeBreakXEmoji(
     state: *uucode.GraphemeBreakState,
 ) bool {
     const table = comptime uucode.precomputeGraphemeBreak(
-        types_x.GraphemeBreakXEmoji,
+        GraphemeBreakXEmoji,
         uucode.GraphemeBreakState,
         computeGraphemeBreakXEmoji,
     );
