@@ -1,38 +1,6 @@
 const std = @import("std");
 const config = @import("config.zig");
-
-// TODO: once #1 is solved, this `GraphemeBreakXEmoji` can be moved to a
-// `types.x.zig` and shared with `root.zig`.
-//const types_x = @import("types.x.zig");
-
-const GraphemeBreakXEmoji = enum(u5) {
-    other,
-    control,
-    prepend,
-    cr,
-    lf,
-    regional_indicator,
-    spacing_mark,
-    l,
-    v,
-    t,
-    lv,
-    lvt,
-    zwj,
-    zwnj,
-    extended_pictographic,
-    // extend, ==
-    //   zwnj +
-    //   indic_conjunct_break_extend +
-    //   indic_conjunct_break_linker
-    indic_conjunct_break_extend,
-    indic_conjunct_break_linker,
-    indic_conjunct_break_consonant,
-
-    // Additional fields:
-    emoji_modifier,
-    emoji_modifier_base,
-};
+const types_x = @import("types.x.zig");
 
 fn compute(cp: u21, data: anytype, backing: anytype, tracking: anytype) void {
     _ = cp;
@@ -47,7 +15,7 @@ fn compute(cp: u21, data: anytype, backing: anytype, tracking: anytype) void {
         switch (data.grapheme_break) {
             inline else => |gb| {
                 data.grapheme_break_x_emoji = comptime std.meta.stringToEnum(
-                    GraphemeBreakXEmoji,
+                    types_x.GraphemeBreakXEmoji,
                     @tagName(gb),
                 ) orelse unreachable;
             },
@@ -63,6 +31,6 @@ pub const grapheme_break_x_emoji = config.Extension{
     },
     .compute = &compute,
     .fields = &.{
-        .{ .name = "grapheme_break_x_emoji", .type = GraphemeBreakXEmoji },
+        .{ .name = "grapheme_break_x_emoji", .type = types_x.GraphemeBreakXEmoji },
     },
 };

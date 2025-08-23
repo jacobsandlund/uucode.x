@@ -34,4 +34,4 @@ pub const tables = [_]config.Table{
 };
 ```
 
-Note: while many extensions will just be setting new properties, and those can directly be used via `uucode.get`, for any library code, until [#1](https://github.com/jacobsandlund/uucode.x/issues/1) is solved, copy the source into your code.
+Note: while many extensions will just be setting new properties, and those can directly be used via `uucode.get`, for some library code, until [#1](https://github.com/jacobsandlund/uucode.x/issues/1) is solved, the source code will need to be copied into your code. See `src/root.zig` and the files under `src/` to see which ones need to be copied and which can be used via the `uucode.x` dependency.
