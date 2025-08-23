@@ -17,7 +17,10 @@ uucode.get(.wcwidth, cp) // 2
 
 ``` zig
 const config = @import("config.zig");
-const config_x = @import("config.x.zig");
+
+// Some extensions define types that need to be resolved from `config_x`, so
+// this should be exactly `pub const config_x`.
+pub const config_x = @import("config.x.zig");
 const d = config.default;
 const wcwidth = config_x.wcwidth;
 
