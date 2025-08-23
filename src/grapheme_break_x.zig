@@ -1,8 +1,13 @@
+// TODO: once #1 is solved, this file can be imported in `root.zig`, and
+// directly used in an `uucode.x` dependency. For now, to use this, copy the
+// below into your own source code.
+
 const std = @import("std");
 const uucode = @import("uucode");
 
-// TODO: once #1 is solved, GraphemeBreakXEmoji can be moved to a `types.x.zig` and shared here
-// const types_x = @import("types.x.zig");
+// TODO: once #1 is solved, this `GraphemeBreakXEmoji` can be moved to a
+// `types.x.zig` and shared with `root.zig`.
+//const types_x = @import("types.x.zig");
 
 const GraphemeBreakXEmoji = uucode.TypeOf(.grapheme_break_x_emoji);
 

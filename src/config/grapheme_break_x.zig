@@ -1,9 +1,10 @@
 const std = @import("std");
 const config = @import("config.zig");
-const types_x = @import("types.x.zig");
 
-// TODO: once #1 is solved, this can be moved to a `types.x.zig` and shared
-// with `root.zig`.
+// TODO: once #1 is solved, this `GraphemeBreakXEmoji` can be moved to a
+// `types.x.zig` and shared with `root.zig`.
+//const types_x = @import("types.x.zig");
+
 const GraphemeBreakXEmoji = enum(u5) {
     other,
     control,
