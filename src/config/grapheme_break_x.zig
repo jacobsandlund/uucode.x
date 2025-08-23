@@ -31,10 +31,6 @@ pub const grapheme_break_x_emoji = config.Extension{
     },
     .compute = &compute,
     .fields = &.{
-        .{
-            .name = "grapheme_break_x_emoji",
-            .type = types_x.GraphemeBreakXEmoji,
-            .import = "uucode.x",
-        },
+        .{ .name = "grapheme_break_x_emoji", .type = types_x.GraphemeBreakXEmoji },
     },
 };
