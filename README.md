@@ -1,5 +1,8 @@
 # uucode.x
 
+ARCHIVED. For now, it's too difficult to manage wiring up these extensions with
+`uucode` in zig build. These have been included in `uucode` itself (still as extensions).
+
 Community extensions for [uucode](https://github.com/jacobsandlund/uucode).
 
 
