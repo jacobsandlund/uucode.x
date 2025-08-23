@@ -63,6 +63,6 @@ pub const grapheme_break_x_emoji = config.Extension{
     },
     .compute = &compute,
     .fields = &.{
-        .{ .name = "grapheme_break_x_emoji", .type = i3 },
+        .{ .name = "grapheme_break_x_emoji", .type = GraphemeBreakXEmoji },
     },
 };
