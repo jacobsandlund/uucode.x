@@ -1,5 +1,5 @@
 const std = @import("std");
-const uucode = @import("root_module").uucode;
+const uucode = @import("uucode");
 const types_x = @import("types.x.zig");
 
 fn mapXEmojiToOriginal(gbx: types_x.GraphemeBreakXEmoji) uucode.GraphemeBreak {

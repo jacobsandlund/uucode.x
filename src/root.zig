@@ -1,4 +1,4 @@
-const uucode = @import("root_module").uucode;
+const uucode = @import("uucode");
 const types_x = @import("types.x.zig");
 const grapheme_break_x = @import("grapheme_break_x.zig");
 
